@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teorias de Gravidade f(Q, T) e a Tensão de Hubble</title>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color: #00FF00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2, h3 {
+            text-transform: uppercase;
+            text-align: center;
+            color: #FFD700;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 50px;
+        }
+        p {
+            line-height: 1.5;
+            margin: 20px;
+        }
+        div {
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #FFD700;
+            width: fit-content;
+            max-width: 80%;
+        }
+        ol {
+            margin: 20px;
+            padding: 10px;
+            background-color: #333;
+            color: #FFF;
+            border: 1px solid #FFD700;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teorias de Gravidade f(Q, T) e a Tensão de Hubble</h1>
+    <h2>Autor: SuperAutistaWH</h2>
+    <h2>Resumo</h2>
+    <p>Este artigo examina modelos viáveis de teorias de gravidade \( f(Q, T) \) contra dados observacionais com o objetivo de restringir o espaço de parâmetros desses modelos. Foram analisados cinco modelos diferentes de gravidade \( f(Q, T) \) e testados contra Supernovas Tipo Ia, dados de Cronômetros Cósmicos, Oscilações Acústicas de Bárions e dados Pantheon. Demonstramos como esses modelos podem aliviar a Tensão de Hubble, prevendo um valor atual do parâmetro de Hubble próximo a 74 km/s/Mpc.</p>
+
+    <h2>1. Introdução</h2>
+    <p>A partir do Big Bang até a formação de elementos, a matéria escura e a antimatéria, questões fundamentais sobre o universo estão cada vez mais presentes no discurso científico. Muitas dessas questões agora têm soluções potenciais. Descobertas cosmológicas revelaram que o universo está se expandindo a uma taxa acelerada, apoiada por observações de Supernovas Tipo Ia (SNe Ia).</p>
+    <p>A ação gravitacional para a gravidade \( f(Q, T) \) é dada por:</p>
+    <div>
+        $$ S = \int d^4x \sqrt{-g} \left(\frac{f(Q,T)}{16\pi} + \mathcal{L}_m\right) $$
+    </div>
+
+    <h2>2. Teoria da Gravidade \( f(Q, T) \)</h2>
+    <h3>2.1 Evolução das Equações de Friedmann</h3>
+    <p>Para derivar as equações de Friedmann, que descrevem a evolução do universo, consideramos que o conteúdo de matéria do universo pode ser modelado como um fluido perfeito. A função de Lagrange para a gravidade \( f(Q, T) \) é dada por:</p>
+    <div>
+        $$ 8\pi\rho = \frac{f}{2} - 6FH^2 - 2G̃ \frac{1 + G̃}{F} (\dot{F}H + FḢ) $$
+    </div>
+    <p>Combinação das equações leva à equação de evolução da função de Hubble:</p>
+    <div>
+        $$ Ḣ + \frac{\dot{F}}{F}H = \frac{4\pi}{F(1 + G̃)}(ρ + p) $$
+    </div>
+
+    <h3>2.2 Propagação de Ondas Gravitacionais em \( f(Q, T) \)</h3>
+    <p>Em \( f(Q, T) \) gravidade, a equação de propagação para ondas gravitacionais (OGs) em um fundo FLRW é dada por:</p>
+    <div>
+        $$ h''_A + 2H[1-\delta(\eta)]h'_A + k^2h_A = 0 $$
+    </div>
+    <p>Onde \( \delta(\eta) \) parametriza a divergência em relação à Relatividade Geral (RG). A distância de luminosidade para OGs é dada por:</p>
+    <div>
+        $$ d_{L}^{GW} = c(1 + z) \sqrt{\frac{f_Q(0)}{f_Q}} \int_0^z \frac{dz'}{H(z')} $$
+    </div>
+
+    <h2>3. Dados Observacionais Atuais</h2>
+    <h3>3.1 Conjunto de Dados de Cronômetros Cósmicos (CC)</h3>
+    <p>O método CC permite a medição do parâmetro de Hubble \( H(z) \) independentemente de qualquer suposição cosmológica específica. Os dados são baseados na medição de \( dz/dt \) de galáxias que evoluem passivamente.</p>
+    <p>A função \( \chi^2 \) para os dados de cronômetros cósmicos é dada por:</p>
+    <div>
+        $$ \chi^2_{CC} = \sum_{n=1}^{31} \frac{[H_{th,i}(\Theta_i, z_i) - H_{obs,i}(z_i)]^2}{\sigma^2_{Hubble}(z_i)} $$
+    </div>
+
+    <h2>4. Tensão de Hubble</h2>
+    <h3>4.1 Modelo: \( f(Q,T) = Q^n + \beta T \)</h3>
+    <h4>4.1.1 Modelo I: \( f(Q,T) = Q + \beta T \)</h4>
+    <p>Consideramos um modelo acoplado minimamente com dependência linear em \( Q \) e \( T \). As equações de Friedmann levam a:</p>
+    <div>
+        $$ \omega = \frac{(16\pi + 3\beta)\dot{H} + 3(8\pi + \beta)H^2}{\beta\dot{H} - 3(8\pi + \beta)H^2} $$
+    </div>
+    <p>A equação diferencial para o parâmetro de Hubble é:</p>
+    <div>
+        $$ \frac{dH}{dz} = \frac{3m(8\pi + \beta)(1 + z)^2H(z)}{\beta + (16\pi + 3\beta)(1 + m(1 + z)^3)} $$
+    </div>
+    <p>Solucionando a equação diferencial, obtemos:</p>
+    <div>
+        $$ H(z) = H_0 \left(\frac{\beta + (16\pi + 3\beta)(1 + m(1 + z)^3)}{\beta + (16\pi + 3\beta)(1 + m)}\right)^{\frac{8\pi + \beta}{16\pi + 3\beta}} $$
+    </div>
+
+    <h2>5. Análise de Ondas Gravitacionais</h2>
+    <h3>5.1 Modelo I: \( f(Q, T) = Q + \beta T \)</h3>
+    <p>As ondas gravitacionais no contexto da teoria \( f(Q, T) \) podem apresentar diferenças significativas em comparação com a teoria da RG, particularmente na distância de luminosidade \( d_{L}^{GW} \).</p>
+    <p>A relação entre a distância de luminosidade de OGs e EM é dada por:</p>
+    <div>
+        $$ d_{L}^{GW}(z) = d_{L}^{EM}(z) \exp\left(-\int_0^z \frac{dz'}{(1 + z')\delta(z')}\right) $$
+    </div>
+
+    <h2>6. Conclusões</h2>
+    <p>Os modelos analisados de \( f(Q,T) \) mostraram-se promissores para aliviar a Tensão de Hubble, com o modelo \( f(Q,T) = Q + \beta T \) apresentando resultados próximos ao valor observado de \( H_0 \). Além disso, a análise de ondas gravitacionais sugere que essas teorias podem alterar a propagação de OGs, oferecendo uma nova perspectiva para a compreensão do universo.</p>
+
+    <h2>Referências Bibliográficas</h2>
+    <ol>
+        <li>Shreya Banerjeea, Aritrya Paula, "Analysing Hubble Tension and Gravitational Waves for f(Q, T) Gravity Theories," arXiv:2408.14878v1 [gr-qc].</li>
+        <li>Planck Collaboration, "Planck 2018 results. VI. Cosmological parameters," Astronomy & Astrophysics 641, A6 (2020).</li>
+        <li>Riess, A. G., et al., "Large Magellanic Cloud Cepheid Standards Provide a 1% Foundation for the Determination of the Hubble Constant," The Astrophysical Journal 876, 85 (2019).</li>
+    </ol>
+</body>
+</html>
