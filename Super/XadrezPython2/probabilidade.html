@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Probabilidade de Transformar R$500 em R$2.000.000</title>
+    <!-- Inclusão do MathJax para renderização das equações -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Inclusão do Chart.js para plotagem de gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.8;
+            font-size: 20px; /* Aumento do tamanho da fonte */
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        .equation {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 1.4em; /* Aumento do tamanho das equações */
+        }
+        ul {
+            font-size: 1.2em; /* Aumento do tamanho das listas */
+            margin-left: 20px;
+        }
+        #distributionChart30, #distributionChart2Weeks {
+            max-width: 1000px;
+            margin: 60px auto;
+        }
+        footer {
+            margin-top: 70px;
+            font-style: italic;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.3em; /* Aumento do tamanho do rodapé */
+        }
+        .result {
+            font-weight: bold;
+            margin: 20px 0;
+            color: #16a085;
+        }
+        .step-by-step {
+            margin-left: 20px;
+        }
+        .highlight {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-left: 5px solid #2980b9;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Probabilidade de Transformar R$500 em R$2.000.000</h1>
+    <p>Investir R$500 e transformá-lo em R$2.000.000 é um objetivo ambicioso que requer uma análise cuidadosa das probabilidades envolvidas. Neste artigo, exploraremos as chances de alcançar esse objetivo utilizando conceitos de probabilidade, equações financeiras, simulações de Monte Carlo e visualizações gráficas em diferentes horizontes de tempo.</p>
+
+    <h2>Conceitos Fundamentais</h2>
+    <p>Para entender a probabilidade de transformar um investimento inicial em um montante significativo, precisamos considerar fatores como a taxa de retorno, o período de investimento e a variabilidade dos retornos. A fórmula básica para calcular o montante acumulado com juros compostos é dada por:</p>
+
+    <div class="equation">
+        $$A = P \times (1 + r)^n$$
+    </div>
+
+    <p>Onde:</p>
+    <ul>
+        <li>\( A \) = Montante final</li>
+        <li>\( P \) = Principal (investimento inicial)</li>
+        <li>\( r \) = Taxa de retorno por período</li>
+        <li>\( n \) = Número de períodos</li>
+    </ul>
+
+    <h2>Análise de Probabilidade</h2>
+    <p>Para transformar R$500 em R$2.000.000, podemos rearranjar a fórmula para encontrar a taxa de retorno necessária:</p>
+
+    <div class="equation">
+        $$2.000.000 = 500 \times (1 + r)^n$$
+    </div>
+
+    <div class="equation">
+        $$(1 + r)^n = \frac{2.000.000}{500} = 4.000$$
+    </div>
+
+    <div class="equation">
+        $$1 + r = (4.000)^{\frac{1}{n}}$$
+    </div>
+
+    <div class="equation">
+        $$r = (4.000)^{\frac{1}{n}} - 1$$
+    </div>
+
+    <p>Essa equação mostra a taxa de retorno necessária para alcançar o montante desejado em \( n \) períodos. A probabilidade de atingir esse objetivo depende da consistência dos retornos e da volatilidade do investimento.</p>
+
+    <h3>Cálculo da Taxa de Retorno Necessária</h3>
+    <p>Vamos calcular a taxa de retorno necessária para ambos os horizontes de tempo: 30 anos e duas semanas.</p>
+
+    <h4>30 Anos</h4>
+    <p>Substituindo \( n = 30 \) na equação:</p>
+
+    <div class="equation">
+        $$r = (4.000)^{\frac{1}{30}} - 1$$
+    </div>
+
+    <p>Calculando passo a passo:</p>
+    <div class="step-by-step">
+        <ol>
+            <li>Calcule a raiz de 30 de 4.000:
+                <div class="equation">
+                    $$(4.000)^{\frac{1}{30}} \approx 1.0637$$
+                </div>
+            </li>
+            <li>Subtraia 1 para encontrar a taxa de retorno:
+                <div class="equation">
+                    $$r = 1.0637 - 1 = 0.0637 \text{ ou } 6.37\% \text{ ao ano}$$
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <h4>Duas Semanas</h4>
+    <p>Considerando que uma semana é aproximadamente 1/52 de um ano, duas semanas correspondem a \( n = 2 \) semanas. Vamos converter a taxa de retorno anual para semanal:</p>
+
+    <div class="equation">
+        $$r_{\text{semanal}} = (1 + r_{\text{anual}})^{\frac{1}{52}} - 1$$
+    </div>
+
+    <p>Para simplificar, usaremos a mesma taxa anual de 10% (\( r_{\text{anual}} = 0.10 \)):</p>
+
+    <div class="equation">
+        $$r_{\text{semanal}} = (1 + 0.10)^{\frac{1}{52}} - 1 \approx 0.001868 \text{ ou } 0.1868\% \text{ por semana}$$
+    </div>
+
+    <p>Agora, substituindo na equação inicial com \( n = 2 \) semanas:</p>
+
+    <div class="equation">
+        $$r = (4.000)^{\frac{1}{2}} - 1 = 63.2456 - 1 = 62.2456 \text{ ou } 6.22456 \text{ por semana}$$
+    </div>
+
+    <p>Ou seja, para transformar R$500 em R$2.000.000 em duas semanas, seria necessária uma taxa de retorno de aproximadamente 6.22456% por semana.</p>
+
+    <div class="highlight">
+        <p>Este cálculo demonstra a magnitude da taxa de retorno necessária para alcançar o objetivo em um curto período. Uma taxa de 6.22456% por semana é extremamente alta e praticamente impossível de ser obtida de forma consistente no mercado financeiro tradicional.</p>
+    </div>
+
+    <h2>Simulação de Distribuição de Retornos</h2>
+    <p>Vamos realizar duas simulações de Monte Carlo para estimar a probabilidade de transformar R$500 em R$2.000.000 em diferentes horizontes de tempo: 30 anos e duas semanas. A simulação de Monte Carlo permite modelar diferentes cenários e variabilidades dos retornos, proporcionando uma estimativa probabilística mais realista.</p>
+
+    <h3>30 Anos</h3>
+    <p>Supondo que a taxa de retorno anual segue uma distribuição normal com uma média de 10% e um desvio padrão de 20%. Utilizando uma simulação de Monte Carlo com 10.000 iterações, podemos estimar a probabilidade de alcançar o objetivo ao longo de 30 anos.</p>
+
+    <canvas id="distributionChart30"></canvas>
+
+    <h3>Duplas Semanas</h3>
+    <p>Agora, consideramos um horizonte de apenas duas semanas. Para esta análise, ajustaremos a taxa de retorno para um período semanal, mantendo a mesma média e desvio padrão anual convertidos para semanal. Vamos estimar a probabilidade de transformar R$500 em R$2.000.000 nesse curto período.</p>
+
+    <canvas id="distributionChart2Weeks"></canvas>
+
+    <h2>Resultados da Simulação</h2>
+    <h3>30 Anos</h3>
+    <p>A simulação de Monte Carlo para 30 anos resultou em:</p>
+    <ul>
+        <li>Probabilidade de Sucesso: <span class="result" id="probability30">1.25%</span></li>
+        <li>Montante Médio Final: R$<span class="result" id="average30">R$25.000,00</span></li>
+        <li>Montante Mínimo: R$<span class="result" id="min30">R$0,00</span></li>
+        <li>Montante Máximo: R$<span class="result" id="max30">R$2.500.000,00</span></li>
+    </ul>
+
+    <h3>Duplas Semanas</h3>
+    <p>A simulação de Monte Carlo para duas semanas resultou em:</p>
+    <ul>
+        <li>Probabilidade de Sucesso: <span class="result" id="probability2Weeks">0.000012%</span> (muito baixa)</li>
+        <li>Montante Médio Final: R$<span class="result" id="average2Weeks">R$510,00</span></li>
+        <li>Montante Mínimo: R$<span class="result" id="min2Weeks">R$500,00</span></li>
+        <li>Montante Máximo: R$<span class="result" id="max2Weeks">R$2.000.000,00</span></li>
+    </ul>
+
+    <h2>Cálculos para os Resultados Numéricos</h2>
+    <p>Os resultados numéricos apresentados na seção anterior foram calculados utilizando as seguintes fórmulas:</p>
+
+    <h3>Probabilidade de Sucesso</h3>
+    <p>A probabilidade de sucesso é calculada pela fórmula:</p>
+    <div class="equation">
+        $$P = \left( \frac{S}{N} \right) \times 100\%$$
+    </div>
+    <p>Onde:</p>
+    <ul>
+        <li>\( P \) = Probabilidade de Sucesso (%)</li>
+        <li>\( S \) = Número de simulações que atingiram ou superaram o montante alvo</li>
+        <li>\( N \) = Número total de simulações</li>
+    </ul>
+
+    <h3>Montante Médio Final</h3>
+    <p>O montante médio final é calculado pela fórmula:</p>
+    <div class="equation">
+        $$\overline{A} = \frac{1}{N} \sum_{i=1}^{N} A_i$$
+    </div>
+    <p>Onde:</p>
+    <ul>
+        <li>\( \overline{A} \) = Montante médio final</li>
+        <li>\( A_i \) = Montante final da i-ésima simulação</li>
+        <li>\( N \) = Número total de simulações</li>
+    </ul>
+
+    <h3>Montante Mínimo e Máximo</h3>
+    <p>O montante mínimo e máximo são determinados pelas fórmulas:</p>
+    <div class="equation">
+        $$A_{\text{min}} = \min(A_1, A_2, \dots, A_N)$$
+    </div>
+    <div class="equation">
+        $$A_{\text{max}} = \max(A_1, A_2, \dots, A_N)$$
+    </div>
+    <p>Onde:</p>
+    <ul>
+        <li>\( A_{\text{min}} \) = Montante mínimo alcançado nas simulações</li>
+        <li>\( A_{\text{max}} \) = Montante máximo alcançado nas simulações</li>
+        <li>\( A_i \) = Montante final da i-ésima simulação</li>
+        <li>\( N \) = Número total de simulações</li>
+    </ul>
+
+    <script>
+        // Função para gerar retornos baseados em distribuição normal (Box-Muller)
+        function generateReturns(mean, stdDev) {
+            let u = 0, v = 0;
+            while(u === 0) u = Math.random();
+            while(v === 0) v = Math.random();
+            let num = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+            return num * stdDev + mean;
+        }
+
+        // Função para criar histogramas
+        function createHistogram(data, binCount) {
+            const min = Math.min(...data);
+            const max = Math.max(...data);
+            const binSize = (max - min) / binCount;
+            let bins = Array(binCount).fill(0);
+            data.forEach(value => {
+                let bin = Math.floor((value - min) / binSize);
+                if(bin >= binCount) bin = binCount -1;
+                bins[bin]++;
+            });
+            const labels = bins.map((count, index) => {
+                const rangeStart = (min + binSize * index).toFixed(2);
+                const rangeEnd = (min + binSize * (index + 1)).toFixed(2);
+                return `${rangeStart} - ${rangeEnd}`;
+            });
+            return { labels, bins };
+        }
+
+        // Função para realizar a simulação de Monte Carlo
+        function monteCarloSimulation(principal, target, periods, simulations, meanReturn, stdDev) {
+            let successes = 0;
+            let results = [];
+
+            for(let i = 0; i < simulations; i++) {
+                let amount = principal;
+                for(let j = 0; j < periods; j++) {
+                    let r = generateReturns(meanReturn, stdDev);
+                    amount *= (1 + r);
+                    if(amount >= target) {
+                        successes++;
+                        break;
+                    }
+                }
+                results.push(amount);
+            }
+
+            let probability = (successes / simulations) * 100;
+            let average = results.reduce((a, b) => a + b, 0) / results.length;
+            let min = Math.min(...results);
+            let max = Math.max(...results);
+            return { probability, results, average, min, max };
+        }
+
+        // Parâmetros da simulação para 30 anos
+        const principal30 = 500;
+        const target30 = 2000000;
+        const years = 30;
+        const simulations = 10000;
+        const meanReturnAnnual = 0.10;
+        const stdDevAnnual = 0.20;
+
+        // Simulação para 30 anos
+        const simulation30 = monteCarloSimulation(principal30, target30, years, simulations, meanReturnAnnual, stdDevAnnual);
+        const probability30 = simulation30.probability.toFixed(2);
+        const average30 = simulation30.average.toFixed(2);
+        const min30 = simulation30.min.toFixed(2);
+        const max30 = simulation30.max.toFixed(2);
+
+        // Exibir os resultados para 30 anos
+        document.getElementById('probability30').innerText = `${probability30}%`;
+        document.getElementById('average30').innerText = simulation30.average.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('min30').innerText = simulation30.min.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('max30').innerText = simulation30.max.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+        // Preparar dados para o gráfico de 30 anos
+        const histogram30 = createHistogram(simulation30.results, 50);
+
+        const histogramData30 = {
+            labels: histogram30.labels,
+            datasets: [{
+                label: 'Frequência dos Montantes',
+                data: histogram30.bins,
+                backgroundColor: 'rgba(52, 152, 219, 0.6)',
+                borderColor: 'rgba(41, 128, 185, 1)',
+                borderWidth: 1,
+                fill: true
+            }]
+        };
+
+        const config30 = {
+            type: 'bar',
+            data: histogramData30,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Distribuição dos Montantes Após 30 Anos'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `Frequência: ${context.parsed.y}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Montante (R$)',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Frequência',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const ctx30 = document.getElementById('distributionChart30').getContext('2d');
+        new Chart(ctx30, config30);
+
+        // Parâmetros da simulação para duas semanas
+        const principal2Weeks = 500;
+        const target2Weeks = 2000000;
+        const weeks = 2;
+        const meanReturnWeekly = Math.pow(1 + meanReturnAnnual, 1/52) - 1; // Conversão anual para semanal
+        const stdDevWeekly = stdDevAnnual / Math.sqrt(52); // Aproximação para conversão anual para semanal
+
+        // Simulação para duas semanas
+        const simulation2Weeks = monteCarloSimulation(principal2Weeks, target2Weeks, weeks, simulations, meanReturnWeekly, stdDevWeekly);
+        const probability2Weeks = simulation2Weeks.probability.toFixed(6);
+        const average2Weeks = simulation2Weeks.average.toFixed(2);
+        const min2Weeks = simulation2Weeks.min.toFixed(2);
+        const max2Weeks = simulation2Weeks.max.toFixed(2);
+
+        // Classificação da probabilidade para duas semanas
+        let classification2Weeks = '';
+        if(probability2Weeks > 50){
+            classification2Weeks = 'alta';
+        } else if(probability2Weeks > 1){
+            classification2Weeks = 'baixa';
+        } else {
+            classification2Weeks = 'muito baixa';
+        }
+
+        // Exibir os resultados para duas semanas
+        document.getElementById('probability2Weeks').innerText = `${probability2Weeks}% (${classification2Weeks})`;
+        document.getElementById('average2Weeks').innerText = simulation2Weeks.average.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('min2Weeks').innerText = simulation2Weeks.min.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('max2Weeks').innerText = simulation2Weeks.max.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+        // Preparar dados para o gráfico de duas semanas
+        const histogram2Weeks = createHistogram(simulation2Weeks.results, 50);
+
+        const histogramData2Weeks = {
+            labels: histogram2Weeks.labels,
+            datasets: [{
+                label: 'Frequência dos Montantes',
+                data: histogram2Weeks.bins,
+                backgroundColor: 'rgba(231, 76, 60, 0.6)',
+                borderColor: 'rgba(192, 57, 43, 1)',
+                borderWidth: 1,
+                fill: true
+            }]
+        };
+
+        const config2Weeks = {
+            type: 'bar',
+            data: histogramData2Weeks,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Distribuição dos Montantes Após Duas Semanas'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `Frequência: ${context.parsed.y}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Montante (R$)',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Frequência',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const ctx2Weeks = document.getElementById('distributionChart2Weeks').getContext('2d');
+        new Chart(ctx2Weeks, config2Weeks);
+    </script>
+
+    <footer>
+        Autor: Luiz Tiago Wilcke
+    </footer>
+
+</body>
+</html>

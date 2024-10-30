@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresas e Lucros - Simulação de Patrimônio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            color: #333;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        td {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Simulação de Patrimônio</h1>
+    <h2>Empresas, Receitas, Lucros e Avaliação de Mercado</h2>
+
+    <!-- Tabela de Empresas -->
+    <table id="tabelaEmpresas">
+        <thead>
+            <tr>
+                <th>Empresa</th>
+                <th>Receita Anual (R$)</th>
+                <th>Lucro Anual (R$)</th>
+                <th>Valor de Mercado (R$)</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        // Dados das empresas
+        const empresas = [
+            {
+                nome: "Carros Elétricos (10% da Tesla)",
+                receita: "R$ 40 bilhões",
+                lucro: "R$ 4 bilhões",
+                valorDeMercado: "R$ 400 bilhões"
+            },
+            {
+                nome: "Super AGI",
+                receita: "R$ 800 milhões - R$ 1 bilhão",
+                lucro: "R$ 320 milhões - R$ 500 milhões",
+                valorDeMercado: "R$ 10 bilhões - R$ 20 bilhões"
+            },
+            {
+                nome: "Placas de Vídeo (TB de RAM)",
+                receita: "R$ 15 bilhões - R$ 25 bilhões",
+                lucro: "R$ 4,5 bilhões - R$ 7,5 bilhões",
+                valorDeMercado: "R$ 100 bilhões - R$ 150 bilhões"
+            },
+            {
+                nome: "Painéis Solares (30% de eficiência)",
+                receita: "R$ 120 milhões - R$ 200 milhões",
+                lucro: "R$ 24 milhões - R$ 60 milhões",
+                valorDeMercado: "R$ 200 milhões - R$ 500 milhões"
+            }
+        ];
+
+        // Função para exibir os dados na tabela
+        function exibirTabela() {
+            const tabela = document.getElementById("tabelaEmpresas").querySelector("tbody");
+            tabela.innerHTML = ""; // Limpa a tabela
+
+            empresas.forEach(empresa => {
+                const linha = document.createElement("tr");
+
+                const nomeCell = document.createElement("td");
+                nomeCell.textContent = empresa.nome;
+                linha.appendChild(nomeCell);
+
+                const receitaCell = document.createElement("td");
+                receitaCell.textContent = empresa.receita;
+                linha.appendChild(receitaCell);
+
+                const lucroCell = document.createElement("td");
+                lucroCell.textContent = empresa.lucro;
+                linha.appendChild(lucroCell);
+
+                const valorCell = document.createElement("td");
+                valorCell.textContent = empresa.valorDeMercado;
+                linha.appendChild(valorCell);
+
+                tabela.appendChild(linha);
+            });
+        }
+
+        // Chama a função para exibir a tabela ao carregar a página
+        exibirTabela();
+    </script>
+</body>
+</html>

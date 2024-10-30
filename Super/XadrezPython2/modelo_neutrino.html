@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulação Avançada da Interação Neutrino-Elétron</title>
+    <!-- Inclusão do MathJax para renderização de equações -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        canvas {
+            border: 1px solid #333;
+            display: block;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .controls label {
+            display: flex;
+            flex-direction: column;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .controls input {
+            width: 150px;
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        .buttons button {
+            padding: 10px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        .buttons button:hover {
+            background-color: #0056b3;
+        }
+        #info {
+            margin-top: 20px;
+            font-size: 14px;
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        #author {
+            margin-top: 20px;
+            font-style: italic;
+            text-align: right;
+        }
+        /* Estilos para a descrição completa */
+        .model-description {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .model-description h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .model-description h3 {
+            color: #555;
+        }
+        .model-description p {
+            text-align: justify;
+            line-height: 1.6;
+            color: #444;
+        }
+        .model-description ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simulação Avançada da Interação Neutrino-Elétron</h1>
+    
+    <!-- Descrição Completa do Modelo -->
+    <div class="model-description">
+        <h2>Descrição Completa do Modelo</h2>
+        
+        <h3>1. Introdução</h3>
+        <p>
+            A interação entre neutrinos e elétrons é um fenômeno fundamental na física de partículas, tendo implicações significativas tanto em processos astrofísicos quanto em experimentos de física de partículas. Neutrinos são partículas elementares de carga neutra e massa extremamente pequena, que interagem muito fracamente com a matéria, tornando sua detecção e estudo desafiadores.
+        </p>
+        
+        <h3>2. Formulação do Modelo Matemático</h3>
+        <p>
+            Para modelar a interação entre um neutrino e um elétron, consideramos um sistema onde o neutrino exerce uma força oscilatória sobre o elétron. Essa força pode ser representada por uma função senoidal, refletindo a natureza quântica e a frequência das interações envolvidas.
+        </p>
+        
+        <h3>3. Equações Diferenciais</h3>
+        <p>
+            As equações que descrevem o movimento do elétron sob a ação da força exercida pelo neutrino são as seguintes:
+        </p>
+        <p>
+            \[
+            \frac{dx}{dt} = v
+            \]
+        </p>
+        <p>
+            \[
+            \frac{dv}{dt} = \frac{F(t)}{m} - \gamma v
+            \]
+        </p>
+        <p>
+            Onde:
+        </p>
+        <ul>
+            <li><strong>\( x(t) \)</strong>: Posição do elétron no tempo \( t \).</li>
+            <li><strong>\( v(t) \)</strong>: Velocidade do elétron.</li>
+            <li><strong>\( F(t) = F_0 \sin(\omega t) \)</strong>: Força oscilatória exercida pelo neutrino.</li>
+            <li><strong>\( m \)</strong>: Massa do elétron.</li>
+            <li><strong>\( \gamma \)</strong>: Coeficiente de amortecimento, representando a resistência do meio.</li>
+        </ul>
+        
+        <h3>4. Método de Solução Numérica</h3>
+        <p>
+            Para resolver as equações diferenciais apresentadas, adotamos o método de Runge-Kutta de 4ª ordem (RK4), que oferece uma maior precisão em comparação com métodos mais simples, como o Método de Euler. O RK4 é particularmente eficaz para sistemas oscilatórios, garantindo estabilidade e precisão na integração numérica.
+        </p>
+        
+        <h3>5. Implementação da Simulação</h3>
+        <p>
+            A simulação é implementada utilizando HTML5 e JavaScript, com o elemento `<canvas>` para a renderização gráfica. A interface inclui controles para ajuste dos parâmetros do sistema, como massa do elétron, coeficiente de amortecimento, força máxima e frequência angular. Além disso, a simulação apresenta informações em tempo real sobre o estado do sistema e permite o controle da animação por meio de botões para iniciar, pausar e resetar.
+        </p>
+        
+        <h3>6. Visualização</h3>
+        <p>
+            A animação visualiza o movimento do elétron sob a ação da força oscilatória do neutrino. Elementos visuais adicionais, como a representação da onda do neutrino e a trajetória do elétron, proporcionam uma compreensão mais intuitiva do comportamento do sistema. A utilização de cores e efeitos de fading na trajetória melhora a estética e a clareza da visualização.
+        </p>
+        
+        <h3>7. Considerações Finais</h3>
+        <p>
+            Este modelo é uma simplificação que visa fornecer uma compreensão intuitiva das interações entre neutrinos e elétrons. Na realidade, tais interações são regidas por teorias quânticas de campos e envolvem processos mais complexos. No entanto, a simulação serve como uma ferramenta educacional eficaz para visualizar conceitos fundamentais e compreender a dinâmica básica do sistema.
+        </p>
+    </div>
+    
+    <!-- Equações Renderizadas com MathJax -->
+    <div>
+        <p>As equações diferenciais que descrevem o movimento do elétron são:</p>
+        <p>$$\frac{dx}{dt} = v$$</p>
+        <p>$$\frac{dv}{dt} = \frac{F(t)}{m} - \gamma v$$</p>
+        <p>Onde:</p>
+        <ul>
+            <li>\( x(t) \): Posição do elétron</li>
+            <li>\( v(t) \): Velocidade do elétron</li>
+            <li>\( F(t) = F_0 \sin(\omega t) \): Força exercida pelo neutrino</li>
+            <li>\( m \): Massa do elétron</li>
+            <li>\( \gamma \): Coeficiente de amortecimento</li>
+        </ul>
+    </div>
+    
+    <!-- Controles para entrada de parâmetros -->
+    <div class="controls">
+        <label>
+            Massa do Elétron (m) em kg:
+            <input type="number" id="mass" value="9.109e-31" step="1e-31">
+        </label>
+        <label>
+            Coeficiente de Amortecimento (γ) em s⁻¹:
+            <input type="number" id="gamma" value="1e-3" step="1e-4">
+        </label>
+        <label>
+            Força Máxima (F₀) em N:
+            <input type="number" id="F0" value="1e-12" step="1e-13">
+        </label>
+        <label>
+            Frequência Angular (ω) em rad/s:
+            <input type="number" id="omega" value="1e3" step="1e2">
+        </label>
+        <div class="buttons">
+            <button id="startButton">Iniciar Simulação</button>
+            <button id="pauseButton" disabled>Pausar</button>
+            <button id="resetButton" disabled>Resetar</button>
+        </div>
+    </div>
+    
+    <!-- Canvas para a animação -->
+    <canvas id="simulationCanvas" width="800" height="400"></canvas>
+    
+    <!-- Informações em tempo real -->
+    <div id="info">
+        <strong>Tempo:</strong> <span id="currentTime">0</span> s<br>
+        <strong>Posição:</strong> <span id="currentPosition">0</span> m<br>
+        <strong>Velocidade:</strong> <span id="currentVelocity">0</span> m/s
+    </div>
+    
+    <!-- Autor -->
+    <div id="author">
+        Autor: Luiz Tiago Wilcke
+    </div>
+    
+    <!-- Script de Simulação -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Elementos do DOM
+            const startButton = document.getElementById('startButton');
+            const pauseButton = document.getElementById('pauseButton');
+            const resetButton = document.getElementById('resetButton');
+            const canvas = document.getElementById('simulationCanvas');
+            const ctx = canvas.getContext('2d');
+            const currentTimeEl = document.getElementById('currentTime');
+            const currentPositionEl = document.getElementById('currentPosition');
+            const currentVelocityEl = document.getElementById('currentVelocity');
+            
+            // Configurações iniciais
+            const width = canvas.width;
+            const height = canvas.height;
+            const scale = 1e10; // Ajuste de escala para visualização
+            const centerX = width / 2;
+            const centerY = height / 2;
+            
+            // Variáveis do sistema
+            let m, gamma, F0, omega;
+            let x, v, t;
+            let dt = 0.001;
+            let maxTime = 100;
+            let animationId;
+            let positions = [];
+            let isPaused = false;
+            
+            // Função para calcular F(t)
+            function F(t) {
+                return F0 * Math.sin(omega * t);
+            }
+            
+            // Método de Runge-Kutta de 4ª Ordem
+            function rungeKutta4(x, v, t, dt) {
+                // Define as equações diferenciais
+                const dxdt = v;
+                const dvdt = F(t) / m - gamma * v;
+                
+                // Calcula os incrementos
+                const k1x = dxdt;
+                const k1v = dvdt;
+                
+                const k2x = v + 0.5 * dt * k1v;
+                const k2v = F(t + 0.5 * dt) / m - gamma * (v + 0.5 * dt * k1v);
+                
+                const k3x = v + 0.5 * dt * k2v;
+                const k3v = F(t + 0.5 * dt) / m - gamma * (v + 0.5 * dt * k2v);
+                
+                const k4x = v + dt * k3v;
+                const k4v = F(t + dt) / m - gamma * (v + dt * k3v);
+                
+                // Atualiza as variáveis
+                const newX = x + (dt / 6) * (k1x + 2 * k2x + 2 * k3x + k4x);
+                const newV = v + (dt / 6) * (k1v + 2 * k2v + 2 * k3v + k4v);
+                
+                return { newX, newV };
+            }
+            
+            // Função de atualização
+            function update() {
+                if (t > maxTime) {
+                    cancelAnimationFrame(animationId);
+                    startButton.disabled = false;
+                    pauseButton.disabled = true;
+                    resetButton.disabled = false;
+                    return;
+                }
+                
+                if (!isPaused) {
+                    // Integração usando Runge-Kutta
+                    const { newX, newV } = rungeKutta4(x, v, t, dt);
+                    x = newX;
+                    v = newV;
+                    t += dt;
+                    
+                    // Armazenar posição para plotagem
+                    positions.push({ x, y: 0 });
+                    
+                    // Atualizar informações em tempo real
+                    currentTimeEl.textContent = t.toFixed(3);
+                    currentPositionEl.textContent = x.toExponential(3);
+                    currentVelocityEl.textContent = v.toExponential(3);
+                }
+            }
+            
+            // Função de desenho
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                
+                // Desenhar eixos
+                ctx.beginPath();
+                ctx.moveTo(0, centerY);
+                ctx.lineTo(width, centerY);
+                ctx.strokeStyle = '#ccc';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                
+                ctx.beginPath();
+                ctx.moveTo(centerX, 0);
+                ctx.lineTo(centerX, height);
+                ctx.strokeStyle = '#ccc';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                
+                // Desenhar neutrino como uma onda
+                drawNeutrinoWave();
+                
+                // Desenhar trajetória com efeito de fading
+                drawTrajectory();
+                
+                // Desenhar elétron
+                drawElectron();
+            }
+            
+            // Função para desenhar a onda do neutrino
+            function drawNeutrinoWave() {
+                const waveLength = 50;
+                const amplitude = 20;
+                ctx.beginPath();
+                ctx.moveTo(0, centerY - amplitude * Math.sin(omega * t));
+                for (let i = 0; i <= width; i++) {
+                    ctx.lineTo(i, centerY - amplitude * Math.sin((omega * t) + (i / waveLength) * 2 * Math.PI));
+                }
+                ctx.strokeStyle = 'rgba(0, 123, 255, 0.5)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+            
+            // Função para desenhar a trajetória do elétron
+            function drawTrajectory() {
+                ctx.beginPath();
+                for (let i = Math.max(0, positions.length - 1000); i < positions.length; i++) {
+                    const pos = positions[i];
+                    const drawX = centerX + pos.x / scale;
+                    const drawY = centerY + pos.y / scale;
+                    if (i === Math.max(0, positions.length - 1000)) {
+                        ctx.moveTo(drawX, drawY);
+                    } else {
+                        ctx.lineTo(drawX, drawY);
+                    }
+                }
+                ctx.strokeStyle = 'rgba(255, 0, 0, 0.7)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+            
+            // Função para desenhar o elétron
+            function drawElectron() {
+                const drawX = centerX + x / scale;
+                const drawY = centerY;
+                ctx.beginPath();
+                ctx.arc(drawX, drawY, 8, 0, 2 * Math.PI);
+                ctx.fillStyle = '#28a745';
+                ctx.fill();
+                ctx.strokeStyle = '#1e7e34';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+            
+            // Função de animação
+            function animate() {
+                update();
+                draw();
+                animationId = requestAnimationFrame(animate);
+            }
+            
+            // Função para iniciar a simulação
+            function startSimulation() {
+                // Obter parâmetros do usuário
+                m = parseFloat(document.getElementById('mass').value);
+                gamma = parseFloat(document.getElementById('gamma').value);
+                F0 = parseFloat(document.getElementById('F0').value);
+                omega = parseFloat(document.getElementById('omega').value);
+                
+                // Inicializar variáveis
+                x = 0;
+                v = 0;
+                t = 0;
+                positions = [];
+                isPaused = false;
+                
+                // Atualizar botões
+                startButton.disabled = true;
+                pauseButton.disabled = false;
+                resetButton.disabled = true;
+                
+                // Iniciar animação
+                animate();
+            }
+            
+            // Função para pausar/resumir a simulação
+            function togglePause() {
+                if (isPaused) {
+                    isPaused = false;
+                    pauseButton.textContent = 'Pausar';
+                    animate();
+                } else {
+                    isPaused = true;
+                    pauseButton.textContent = 'Retomar';
+                    cancelAnimationFrame(animationId);
+                }
+            }
+            
+            // Função para resetar a simulação
+            function resetSimulation() {
+                cancelAnimationFrame(animationId);
+                ctx.clearRect(0, 0, width, height);
+                positions = [];
+                x = 0;
+                v = 0;
+                t = 0;
+                
+                // Resetar informações
+                currentTimeEl.textContent = '0';
+                currentPositionEl.textContent = '0';
+                currentVelocityEl.textContent = '0';
+                
+                // Atualizar botões
+                startButton.disabled = false;
+                pauseButton.disabled = true;
+                resetButton.disabled = true;
+                pauseButton.textContent = 'Pausar';
+            }
+            
+            // Eventos dos botões
+            startButton.addEventListener('click', startSimulation);
+            pauseButton.addEventListener('click', togglePause);
+            resetButton.addEventListener('click', resetSimulation);
+        });
+    </script>
+</body>
+</html>
+
+

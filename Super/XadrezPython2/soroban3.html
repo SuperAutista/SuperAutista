@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Soroban</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0e6d6;
+            margin: 0;
+            padding: 0;
+        }
+
+        #soroban-container {
+            overflow-x: auto; /* Adiciona barra de rolagem horizontal */
+            padding: 30px 0;
+            background-color: #f0e6d6;
+        }
+
+        #soroban {
+            display: flex; /* Usando flex para melhor controle com mais colunas */
+            border: 15px solid #8B4513; /* Espessura da borda */
+            border-radius: 15px; /* Arredondamento maior */
+            padding: 30px;
+            background-color: #d2a679;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra mais intensa */
+            min-width: 2200px; /* Define uma largura mínima para acomodar 20 colunas */
+        }
+
+        .coluna {
+            position: relative;
+            width: 70px; /* Largura da coluna */
+            height: 500px; /* Aumentei a altura para mais espaço */
+            margin: 0 5px; /* Espaçamento entre colunas */
+            background-color: #c69c6d;
+            border-radius: 8px; /* Arredondamento maior */
+            flex-shrink: 0; /* Evita que as colunas encolham */
+        }
+
+        .bolinha {
+            width: 40px;
+            height: 40px;
+            background-color: #2d6a4f;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            left: 15px; /* Posição horizontal */
+            transition: top 0.2s;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .trave {
+            width: 100%;
+            height: 15px; /* Espessura da trave */
+            background-color: #8B4513;
+            position: absolute;
+            top: 250px; /* Posição vertical da trave */
+            left: 0;
+        }
+
+        #valor-display {
+            margin-top: 30px;
+            font-size: 28px; /* Tamanho da fonte */
+            color: #333;
+        }
+
+        h1, h2, p {
+            color: #333;
+            margin: 10px 0;
+        }
+
+        /* Melhorias para dispositivos móveis */
+        @media (max-width: 1200px) {
+            #soroban {
+                min-width: 2200px; /* Ajuste conforme necessário */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Simulador de Soroban</h1>
+    <div id="soroban-container">
+        <div id="soroban"></div>
+    </div>
+    <div id="valor-display">
+        Valor: <span id="valor">0</span>
+    </div>
+    <p>Autor: Luiz Tiago Wilcke</p>
+
+    <h2>História do Soroban</h2>
+    <p>
+        O soroban é o ábaco japonês, uma ferramenta de cálculo tradicional que tem sido usada por séculos. Originário da China, o ábaco foi introduzido no Japão por volta do século XVI. O soroban moderno é conhecido por sua eficiência e ainda é usado hoje em dia para ensino de matemática e cálculos rápidos.
+    </p>
+
+    <script>
+        const soroban = document.getElementById('soroban');
+        const numColunas = 20; // Atualizado para 20 colunas
+        const tamanhoBolinha = 40;
+        const posicaoTrave = 250; // Posição da trave
+        const espacamento = 15; // Espaçamento entre bolinhas
+        const posicaoSuperiorUp = 30; // Posição inicial da bolinha superior
+        const posicaoSuperiorDown = posicaoTrave - tamanhoBolinha - espacamento; // 250 - 40 - 15 = 195
+
+        for (let i = 0; i < numColunas; i++) {
+            const coluna = document.createElement('div');
+            coluna.classList.add('coluna');
+
+            // Bolinha superior
+            const bolinhaSuperior = document.createElement('div');
+            bolinhaSuperior.classList.add('bolinha', 'superior');
+            bolinhaSuperior.dataset.tipo = 'superior';
+            bolinhaSuperior.dataset.posicao = 'up';
+            bolinhaSuperior.style.top = posicaoSuperiorUp + 'px';
+            bolinhaSuperior.addEventListener('click', moverBolinha);
+            coluna.appendChild(bolinhaSuperior);
+
+            // Trave
+            const trave = document.createElement('div');
+            trave.classList.add('trave');
+            coluna.appendChild(trave);
+
+            // Bolinhas inferiores
+            for (let j = 0; j < 4; j++) {
+                const bolinhaInferior = document.createElement('div');
+                bolinhaInferior.classList.add('bolinha', 'inferior');
+                bolinhaInferior.dataset.tipo = 'inferior';
+                bolinhaInferior.dataset.posicao = 'down';
+
+                // Definir posições individuais para cada bolinha inferior
+                const posicaoInferiorDown = posicaoTrave + espacamento + j * (tamanhoBolinha + espacamento); // 250 + 15 + j*55
+                const posicaoInferiorUp = posicaoInferiorDown - (tamanhoBolinha + espacamento); // posicaoInferiorDown - 55
+
+                // Atribuir atributos de dados para posições individuais
+                bolinhaInferior.dataset.posicaoUp = posicaoInferiorUp;
+                bolinhaInferior.dataset.posicaoDown = posicaoInferiorDown;
+
+                // Inicializar na posição down
+                bolinhaInferior.style.top = posicaoInferiorDown + 'px';
+
+                bolinhaInferior.addEventListener('click', moverBolinha);
+                coluna.appendChild(bolinhaInferior);
+            }
+
+            soroban.appendChild(coluna);
+        }
+
+        function moverBolinha(event) {
+            const bolinha = event.target;
+            const tipo = bolinha.dataset.tipo;
+            const posicao = bolinha.dataset.posicao;
+
+            if (tipo === 'superior') {
+                if (posicao === 'up') {
+                    bolinha.style.top = posicaoSuperiorDown + 'px';
+                    bolinha.dataset.posicao = 'down';
+                } else {
+                    bolinha.style.top = posicaoSuperiorUp + 'px';
+                    bolinha.dataset.posicao = 'up';
+                }
+            } else if (tipo === 'inferior') {
+                if (posicao === 'down') {
+                    const novaPosicao = parseInt(bolinha.dataset.posicaoUp);
+                    bolinha.style.top = novaPosicao + 'px';
+                    bolinha.dataset.posicao = 'up';
+                } else {
+                    const novaPosicao = parseInt(bolinha.dataset.posicaoDown);
+                    bolinha.style.top = novaPosicao + 'px';
+                    bolinha.dataset.posicao = 'down';
+                }
+            }
+
+            atualizarValor();
+        }
+
+        function atualizarValor() {
+            let valorTotal = 0;
+            const colunas = Array.from(document.querySelectorAll('.coluna'));
+
+            colunas.forEach((coluna, index) => {
+                let valorColuna = 0;
+
+                // Bolinha superior
+                const bolinhaSuperior = coluna.querySelector('.bolinha.superior');
+                if (bolinhaSuperior.dataset.posicao === 'down') {
+                    valorColuna += 5;
+                }
+
+                // Bolinhas inferiores
+                const bolinhasInferiores = coluna.querySelectorAll('.bolinha.inferior');
+                bolinhasInferiores.forEach(bolinhaInferior => {
+                    if (bolinhaInferior.dataset.posicao === 'up') {
+                        valorColuna += 1;
+                    }
+                });
+
+                // Valor da posição
+                const valorPosicao = Math.pow(10, colunas.length - index - 1);
+                valorTotal += valorColuna * valorPosicao;
+            });
+
+            document.getElementById('valor').textContent = valorTotal;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
